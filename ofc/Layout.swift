@@ -12,7 +12,7 @@ import UIKit
 
 
 
-class Layout : UIViewController  {
+class Layout  {
 
     
     
@@ -35,99 +35,90 @@ class Layout : UIViewController  {
     var breakReason = UILabel()
     
     let combos =  ["High Card", "Pair", "Two pairs", "Set", "Straight", "Flush", "Full House", "Quads", "Straight Flush", "Royal Flush"]
+   
     
     
-    
-    func createPlaces () {
-    
-        let width = view.frame.width * 0.5
+    func createCardPlaces(parameters: (CGPoint, CGSize, CGFloat, CGFloat)) {
         
-        let borders : CGFloat = 10
+        var point = parameters.0
         
-        let distancePercent : CGFloat = 0.01
-
-        let rightField : CGFloat = 2 // 2 cards
+        var match = false
         
-        let betweenField : CGFloat = 0.5 // 0.5 card
+        if parameters.3 == parameters.2 { match = true }
         
-        let height = view.frame.height - 2*borders
-        
-        let distance = width * distancePercent
-        
-        let cardWidth = (width - 7*distance) / (5 + rightField)
-        
-        let cardHeight = (height - 2*distance) / (4 + betweenField)
-        
-        onX = width
-        
-        onY = view.frame.height - borders - cardHeight
-
         for i in 0...17 {
             
             card = UILabel()
             
-            cardPlacesLay.append(createCardLay(Rect: CGRect(x: onX, y: onY, width: cardWidth, height: cardHeight)))
+            card.frame = CGRect(origin: point, size: parameters.1)
             
-            cardsOnDeck.append(card)
+            card = createCardLay(Rect: card.frame)
             
-            cardPlacesLay[i].tag = 0
+            cardPlacesLay.append(card)
             
-            onX = onX + cardWidth + distance
+            point.x = point.x + parameters.1.width + parameters.2
             
             if (i+1)%5 == 0 {
                 
-                onX = width
+                point.x = parameters.0.x
                 
-                if (i+1)/5 == 1 {
-                  
-                    onY = onY - (betweenField * cardHeight) - cardHeight
-                
+                if (i+1)/5 == 1 && !match {
+                    
+                    point.y = point.y - parameters.3 - parameters.1.height
+                    
                 } else {
                     
-                    onY = onY - distance - cardHeight
+                    point.y = point.y - parameters.2 - parameters.1.height
                 }
             }
         }
-        
-        var scoreMessages = [bottomScore,middleScore,topScore]
-        
-        var sOrigin = cardPlacesLay[9].frame.origin
-        
-        sOrigin.x = sOrigin.x + distance + cardWidth
-        
-        let sWidth = cardPlacesLay[9].frame.width * 2
-        
-        var shift : CGFloat = 0
-        
-        for i in 0...2 {
-            
-            scoreMessages[i].frame = CGRect(x: sOrigin.x, y: sOrigin.y - shift, width: sWidth, height: cardHeight)
-            
-            shift = shift + distance + cardHeight
-            
-            scoreMessages[i].font = UIFont.systemFont(ofSize: 8)
-            
-            scoreMessages[i].textAlignment = NSTextAlignment.center
-        }
-        
-        topScore.center.x = topScore.center.x - 2 * (distance + cardWidth)
-        
-        var bOrigin = cardPlacesLay[0].frame.origin
-        
-        bOrigin.y = bOrigin.y - betweenField * cardHeight + distance
-        
-        let bHeight = betweenField * cardHeight - 2 * distance
-        
-        let bWidth = 5 * cardWidth + 4 * distance
-        
-        breakReason.frame = CGRect(x: bOrigin.x, y: bOrigin.y, width: bWidth, height: bHeight)
-        
-        breakReason.font = UIFont.systemFont(ofSize: 8)
-        
-        breakReason.textAlignment = NSTextAlignment.center
-        
     }
-   
+    
+    
+    
+//    
+//    func createPlaces () {
+//        
+//        
+//        var scoreMessages = [bottomScore,middleScore,topScore]
+//        
+//        var sOrigin = cardPlacesLay[9].frame.origin
+//        
+//        sOrigin.x = sOrigin.x + distance + cardWidth
+//        
+//        let sWidth = cardPlacesLay[9].frame.width * 2
+//        
+//        var shift : CGFloat = 0
+//        
+//        for i in 0...2 {
+//            
+//            scoreMessages[i].frame = CGRect(x: sOrigin.x, y: sOrigin.y - shift, width: sWidth, height: cardHeight)
+//            
+//            shift = shift + distance + cardHeight
+//            
+//            scoreMessages[i].font = UIFont.systemFont(ofSize: 8)
+//            
+//            scoreMessages[i].textAlignment = NSTextAlignment.center
+//        }
+//        
+//        topScore.center.x = topScore.center.x - 2 * (distance + cardWidth)
+//        
+//        var bOrigin = cardPlacesLay[0].frame.origin
+//        
+//        bOrigin.y = bOrigin.y - betweenField * cardHeight + distance
+//        
+//        let bHeight = betweenField * cardHeight - 2 * distance
+//        
+//        let bWidth = 5 * cardWidth + 4 * distance
+//        
+//        breakReason.frame = CGRect(x: bOrigin.x, y: bOrigin.y, width: bWidth, height: bHeight)
+//        
+//        breakReason.font = UIFont.systemFont(ofSize: 8)
+//        
+//        breakReason.textAlignment = NSTextAlignment.center
+//        
+//    }
+//   
     
     
     func createStartButton (button: UIButton) {

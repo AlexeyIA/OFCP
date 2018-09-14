@@ -9,14 +9,9 @@
 import Foundation
 
 
-class CpuStrat {
+class CpuHandAnalyse {
     
     var currentHand = [(Int,String)]()
-    
-    var hands = [(Int,String)]()
-    
-    var playerHand = [(Int,String)]()
-    
     
     var straightFlushDraws1 = [[String]]()
     
@@ -32,6 +27,7 @@ class CpuStrat {
     
     var kinds2 = [Int]()
    
+    var set = CpuSetHand()
     
     
 
@@ -42,36 +38,17 @@ class CpuStrat {
         
         currentHand = [(10,"s"),(12,"d"),(12,"s"),(12,"h"),(10,"h")]
         
-        if hands.isEmpty {
-            
-            setFirst(hand: currentHand)
-            
-        } else {
-            
-        }
+        straightFlushAnalyse(hand: currentHand)
+        
+        straightAnalyse(hand: currentHand)
+        
+        kindAnalyse(hand: currentHand)
     }
+  
     
     
     
-    func setFirst(hand: [(Int,String)]) {
-        
-        let cards = hand
-        
-        straightFlushAnalyse(hand: cards)
-        
-        straightAnalyse(hand: cards)
-        
-        kindAnalyse(hand: cards)
-        
-        startAnalyse()
-        
-        print(hands)
-        
-    }
-    
-    
-    
-    func startAnalyse() {
+    func howToSet() {
       
       /*  var massive = [straightFlushDraws1, straightFlushDraws2]
         
@@ -158,10 +135,7 @@ class CpuStrat {
             }
         } // straight flushes
         
-       */ if currentHand.count != 0 {
-            
-            quadsOrFlushAnalyse()
-        }
+       */
         
     }
     
@@ -189,8 +163,6 @@ class CpuStrat {
                 break
             }
         }
-        
-        print("sF Analyse: \(cards)")
         
         var straightFlushCards1 = [Int]()
        
@@ -351,31 +323,10 @@ class CpuStrat {
                 
                 straightFlushCards2 = flushCards
             }
-            
         }
-    
-      /*  print("flushes draw:")
-        
-        print(flushDraws1)
-        
-        print(flushDraws2)
-        
-        print("straight flushes draw:")
-        
-        for i in straightFlushDraws1 {
-            
-            print(i)
-        }
-        for i in straightFlushDraws2 {
-            
-            print(i)
-        }
- */
     }
     
     func kindAnalyse(hand: [(Int,String)]) {
-        
-     //   print("kinds Analyse: \(hand)")
         
         var cards = [Int]()
         
@@ -418,9 +369,6 @@ class CpuStrat {
                 }
             }
         }
-        
-        
-      //  print("kinds: \(kinds1) and \(kinds2)")
     }
     
     func straightAnalyse(hand: [(Int,String)]) {
@@ -451,109 +399,12 @@ class CpuStrat {
                 }
             }
         }
-        
-     /*   print("straight draw:")
-        
-        for i in straightDraws {
-            print(i)
-        }
- */
-    } // Ace prints as 14
-    
-    
-    
-    func setOther() {
-        
-        let otherCardsCount = currentHand.count
-        
-        var highCard = [Bool](repeatElement(false, count: otherCardsCount))
-        
-        for i in 0...otherCardsCount - 1 {
-            
-            if currentHand[i].0 == 1 {
-                
-                currentHand[i].0 = 14
-            }
-            
-            if currentHand[i].0 > 11 {
-                
-                highCard[i] = true
-            }
-        }
-        
-        for _ in 1...8 {
-            
-            hands.append((0,""))
-        }
-        
-        if otherCardsCount == 1 {
-            
-            hands[5] = currentHand[0]
-        
-        } else {
-        
-            var queen = 2 // any > 1
-            
-            for i in 0...1 {
-                
-                if currentHand[i].0 == 1 {
-                    
-                    currentHand[i].0 = 14
-                }
-                
-                if currentHand[i].0 == 12 {
-                    
-                    queen = i
-                }
-            }
-            
-            if queen != 2 && currentHand[1-queen].0 > 12 {
-                
-                hands[5] = currentHand[1-queen]
-                
-                hands[10] = currentHand[queen]
-            
-            } else {
-                
-                hands[5] = currentHand[0]
-                
-                hands[6] = currentHand[1]
-            }
-        }
-        
-        
-        
-        
     }
     
-    func quadsOrFlushAnalyse() {
-        
-    /*    print("flush draw 1:")
-        
-        print(flushDraws1)
-        
-        print(flushDraws1.count)
-        
-        print("flush draw 2:")
-        
-        print(flushDraws2)
-        
-        print(flushDraws2.count)
-        
-        print("kinds 1:")
-        
-        print(kinds1)
-        
-        print(kinds1.count)
-        
-        print("kinds 2:")
-        
-        print(kinds2)
-        
-        print(kinds2.count) */
-        
-
-    }
+    
+    
+    
+    
     
     
     
@@ -562,9 +413,7 @@ class CpuStrat {
     
     func clear() {
         
-        currentHand.removeAll()
         
-        hands.removeAll()
     }
     
     

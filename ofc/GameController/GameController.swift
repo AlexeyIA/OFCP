@@ -8,86 +8,79 @@
 
 import UIKit
 
-import AVFoundation
 
+class GameController: UIViewController {
 
-
-class ViewController: UIViewController {
-
+    
+    var gameData = GameData()
+    
+    var playerLayData = PlayerLayData()
     
     
     var cardsColode = [(Int,String)]()
     
-    var startSound = AVAudioPlayer()
+    var lay = Layout()
     
     var startRound = UIButton()
     
-    var lay = Layout()
     
     var calc = Calculations()
+
+    var cpu = CpuHandAnalyse()
     
-    var cpu = CpuStrat()
+    var playerHands = PlayerHandsData()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      /*  let frame = CGRect(x: 0, y: 0, width: view.frame.width/2 - 10, height: view.frame.height)
+        playerLayData.configureLayParameters(frame: view.frame)
         
-        let back = UIImageView(frame: frame)
+        let params = playerLayData.getLayParameters()
         
-        back.image = UIImage(named: "points.jpg")
-        
-        back.contentMode = UIViewContentMode.scaleAspectFit
-        
-        view.insertSubview(back, at: 0) */
-    }
-    
-    
-    
-    @IBAction func startGame(_ sender: UIButton) {
-        
-        sender.alpha = 0
-        
-        sender.removeFromSuperview()
-        
-        let startSoundPath = Bundle.main.path(forResource: "start", ofType: "wav")
-    
-        do {
-        
-            try startSound = AVAudioPlayer(contentsOf: URL(fileURLWithPath: startSoundPath!))
-        }
-        
-        catch {
-        
-            print("error start sound")
-        }
-        
-        startSound.play()
-
-        lay.createPlaces()
+        lay.createCardPlaces(parameters: params)
         
         for i in lay.cardPlacesLay {
-        
             view.addSubview(i)
         }
         
-        lay.createStartButton(button: startRound)
+        // start button print
         
-        view.addSubview(startRound)
+        gameData.whoIsFirst()
         
-        view.addSubview(lay.bottomScore)
-        
-        view.addSubview(lay.middleScore)
-        
-        view.addSubview(lay.topScore)
-        
-        view.addSubview(lay.breakReason)
-        
-        calc.start()
-        
-        startRound.addTarget(self, action: #selector(toNextRound), for: .touchUpInside)
+        // add target to start button
     }
+
     
+   
+    
+//    @IBAction func startGame(_ sender: UIButton) {
+//
+//        lay.createPlaces()
+//
+//        for i in lay.cardPlacesLay {
+//
+//            view.addSubview(i)
+//        }
+//
+//        lay.createStartButton(button: startRound)
+//
+//        view.addSubview(startRound)
+//
+//        view.addSubview(lay.bottomScore)
+//
+//        view.addSubview(lay.middleScore)
+//
+//        view.addSubview(lay.topScore)
+//    
+//        view.addSubview(lay.breakReason)
+//
+//        calc.start()
+//
+//        startRound.addTarget(self, action: #selector(toNextRound), for: .touchUpInside)
+//    }
+
     
     
     func toNextRound() {
@@ -102,7 +95,7 @@ class ViewController: UIViewController {
             
             calc.clear()
             
-            lay.createPlaces()
+          //  lay.createPlaces()
             
             for i in lay.cardPlacesLay {
             
@@ -214,7 +207,7 @@ class ViewController: UIViewController {
         
         for i in 0...(calc.currentNum() - 1) {
          
-            let gesture = UIPanGestureRecognizer(target: self, action: #selector(ViewController.wasDragged(_:)))
+            let gesture = UIPanGestureRecognizer(target: self, action: #selector(GameController.wasDragged(_:)))
             
             lay.cardsOnDeck[i].addGestureRecognizer(gesture)
             
