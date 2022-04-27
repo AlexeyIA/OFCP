@@ -50,65 +50,59 @@ class Calculations: UIViewController {
     
     func currentNum() -> Int {
     
-        if round > 1 {
+     return round > 1 ? 3 : 5
         
-            return 3
-        
-        } else {
-        
-            return 5
-        }
     }
   
     
-    
-    func checkRound(inLay: Layout) -> (Bool,String) {
-        
-        var next = true
-    
-        var error = "no errors"
-        
-        switch round {
-        
-        case 2:
-            
-            for i in 0...4 {
-        
-                if inLay.cardPlacesLay[i].tag == 1 {
-                
-                    next = false
-                    
-                    error = "Put all 5 cards"
-                }
-            }
-            
-        case 3,4,5,6 :
-            
-            var j = 0
-            
-            for i in 0...2 {
-            
-                if inLay.cardPlacesLay[i].tag == 1 {
-                
-                    j += 1
-                }
-            }
-            
-            if j != 1 {
-                
-                next = false
-                
-                error = "One card must be unused"
-            }
-            
-        default:
-            break
-        }
-     
-        return (next,error)
-    }
-    
-    
+//    
+//    func checkRound(inLay: Layout) -> (Bool,String) {
+//        
+//        var next = true
+//    
+//        var error = "no errors"
+//        
+//        switch round {
+//        
+//        case 2:
+//            
+//            for i in 0...4 {
+//        
+//                if inLay.cardPlacesLay[i].tag == 1 {
+//                
+//                    next = false
+//                    
+//                    error = "Put all 5 cards"
+//                }
+//            }
+//            
+//        case 3,4,5,6 :
+//            
+//            var j = 0
+//            
+//            for i in 0...2 {
+//            
+//                if inLay.cardPlacesLay[i].tag == 1 {
+//                
+//                    j += 1
+//                }
+//            }
+//            
+//            if j != 1 {
+//                
+//                next = false
+//                
+//                error = "One card must be unused"
+//            }
+//            
+//        default:
+//            break
+//        }
+//     
+//        return (next,error)
+//    }
+//    
+//    
     
     func removeCurrent() {
     

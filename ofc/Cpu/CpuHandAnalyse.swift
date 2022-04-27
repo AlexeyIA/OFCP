@@ -50,7 +50,7 @@ class CpuHandAnalyse {
     
     func howToSet() {
       
-      /*  var massive = [straightFlushDraws1, straightFlushDraws2]
+        var massive = [straightFlushDraws1, straightFlushDraws2]
         
         for i in 0...1 {
             
@@ -103,7 +103,7 @@ class CpuHandAnalyse {
                 
                     if add {
                         
-                        hands.append((i,draws[0][1]))
+                     //   hands.append((i,draws[0][1]))
                         
                         var ind = 0
                         
@@ -119,24 +119,21 @@ class CpuHandAnalyse {
                     }
                 }
                 
-                if currentHand.count != 0 {
-                    
-                    for _ in 1...5 - hands.count {
-                    
-                        hands.append((0,""))
-                    }
-
-                }
+//                if currentHand.count != 0 {
+//
+//                    for _ in 1...5 - hands.count {
+//
+//                        hands.append((0,""))
+//                    }
+//
+//                }
                 
-                if currentHand.count != 0 {
-                    
-                    setOther()
-                }
+//                if currentHand.count != 0 {
+//
+//                    setOther()
+//                }
             }
         } // straight flushes
-        
-       */
-        
     }
     
     
@@ -400,39 +397,4 @@ class CpuHandAnalyse {
             }
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-    func clear() {
-        
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

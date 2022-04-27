@@ -13,9 +13,8 @@
 		8A5FCE9A20A35C9300106AED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A5FCE9920A35C9300106AED /* Assets.xcassets */; };
 		8A5FCE9D20A35C9300106AED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A5FCE9B20A35C9300106AED /* LaunchScreen.storyboard */; };
 		8A72F9F72135863400F54EC5 /* CpuHandAnalyse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A72F9F62135863400F54EC5 /* CpuHandAnalyse.swift */; };
-		8A85CCA4214B7D06000FD36F /* PlayerLayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A85CCA3214B7D06000FD36F /* PlayerLayData.swift */; };
+		8A85CCA4214B7D06000FD36F /* PlacesLay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A85CCA3214B7D06000FD36F /* PlacesLay.swift */; };
 		8A85CCA8214B8BF3000FD36F /* PlayerHandsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A85CCA7214B8BF3000FD36F /* PlayerHandsData.swift */; };
-		8A85CCAA214B9873000FD36F /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A85CCA9214B9873000FD36F /* GameData.swift */; };
 		8A99842D20F7B46F009EF170 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A99842C20F7B46F009EF170 /* Layout.swift */; };
 		8A9FD20D21074BDE00CBEE76 /* Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9FD20C21074BDE00CBEE76 /* Calculations.swift */; };
 		8AD0BDAB2146828300F01A03 /* CpuSetHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD0BDAA2146828300F01A03 /* CpuSetHand.swift */; };
@@ -30,9 +29,8 @@
 		8A5FCE9C20A35C9300106AED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A5FCE9E20A35C9300106AED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A72F9F62135863400F54EC5 /* CpuHandAnalyse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CpuHandAnalyse.swift; sourceTree = "<group>"; };
-		8A85CCA3214B7D06000FD36F /* PlayerLayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLayData.swift; sourceTree = "<group>"; };
+		8A85CCA3214B7D06000FD36F /* PlacesLay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesLay.swift; sourceTree = "<group>"; };
 		8A85CCA7214B8BF3000FD36F /* PlayerHandsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerHandsData.swift; sourceTree = "<group>"; };
-		8A85CCA9214B9873000FD36F /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		8A99842C20F7B46F009EF170 /* Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		8A9FD20C21074BDE00CBEE76 /* Calculations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculations.swift; sourceTree = "<group>"; };
 		8AD0BDAA2146828300F01A03 /* CpuSetHand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CpuSetHand.swift; sourceTree = "<group>"; };
@@ -86,7 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				8A5FCE9420A35C9300106AED /* GameController.swift */,
-				8A85CCA9214B9873000FD36F /* GameData.swift */,
 			);
 			path = GameController;
 			sourceTree = "<group>";
@@ -94,7 +91,7 @@
 		8A85CCA0214B7B0F000FD36F /* Player */ = {
 			isa = PBXGroup;
 			children = (
-				8A85CCA3214B7D06000FD36F /* PlayerLayData.swift */,
+				8A85CCA3214B7D06000FD36F /* PlacesLay.swift */,
 				8A85CCA7214B8BF3000FD36F /* PlayerHandsData.swift */,
 			);
 			path = Player;
@@ -136,7 +133,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Alexey A";
 				TargetAttributes = {
 					8A5FCE8E20A35C9300106AED = {
@@ -148,7 +145,7 @@
 			};
 			buildConfigurationList = 8A5FCE8A20A35C9300106AED /* Build configuration list for PBXProject "ofc" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -184,12 +181,11 @@
 			files = (
 				8A99842D20F7B46F009EF170 /* Layout.swift in Sources */,
 				8A72F9F72135863400F54EC5 /* CpuHandAnalyse.swift in Sources */,
-				8A85CCA4214B7D06000FD36F /* PlayerLayData.swift in Sources */,
+				8A85CCA4214B7D06000FD36F /* PlacesLay.swift in Sources */,
 				8A5FCE9520A35C9300106AED /* GameController.swift in Sources */,
 				8AD0BDAB2146828300F01A03 /* CpuSetHand.swift in Sources */,
 				8A85CCA8214B8BF3000FD36F /* PlayerHandsData.swift in Sources */,
 				8A5FCE9320A35C9300106AED /* AppDelegate.swift in Sources */,
-				8A85CCAA214B9873000FD36F /* GameData.swift in Sources */,
 				8A9FD20D21074BDE00CBEE76 /* Calculations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,21 +216,30 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -263,6 +268,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -271,21 +277,30 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -306,6 +321,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};

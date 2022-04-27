@@ -12,9 +12,9 @@ import UIKit
 class GameController: UIViewController {
 
     
-    var gameData = GameData()
+   // var gameData = GameData()
     
-    var playerLayData = PlayerLayData()
+    var placesLay = PlacesLay()
     
     
     var cardsColode = [(Int,String)]()
@@ -35,55 +35,33 @@ class GameController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        playerLayData.configureLayParameters(frame: view.frame)
+        createStartLays()
+    }
+    
+    func createStartLays() {
         
-        let params = playerLayData.getLayParameters()
+        placesLay.configureLayParameters(frame: view.frame)
         
-        lay.createCardPlaces(parameters: params)
-        
-        for i in lay.cardPlacesLay {
+        for i in placesLay.player {
+            
             view.addSubview(i)
         }
         
-        // start button print
+        for i in placesLay.cpu {
+            
+            view.addSubview(i)
+        }
         
-        gameData.whoIsFirst()
+        lay.createStartButton(button: startRound, frame: placesLay.player[4].frame, space: placesLay.distanceX)
         
-        // add target to start button
+        view.addSubview(startRound)
+        
+        startRound.addTarget(self, action: #selector(toNextRound), for: .touchUpInside)
     }
 
     
    
-    
-//    @IBAction func startGame(_ sender: UIButton) {
-//
-//        lay.createPlaces()
-//
-//        for i in lay.cardPlacesLay {
-//
-//            view.addSubview(i)
-//        }
-//
-//        lay.createStartButton(button: startRound)
-//
-//        view.addSubview(startRound)
-//
-//        view.addSubview(lay.bottomScore)
-//
-//        view.addSubview(lay.middleScore)
-//
-//        view.addSubview(lay.topScore)
-//    
-//        view.addSubview(lay.breakReason)
-//
-//        calc.start()
-//
-//        startRound.addTarget(self, action: #selector(toNextRound), for: .touchUpInside)
-//    }
-
-    
-    
-    func toNextRound() {
+    @objc func toNextRound() {
         
         if calc.round == 0 {
            
@@ -95,7 +73,7 @@ class GameController: UIViewController {
             
             calc.clear()
             
-          //  lay.createPlaces()
+            lay.createPlaces()
             
             for i in lay.cardPlacesLay {
             
@@ -170,7 +148,7 @@ class GameController: UIViewController {
         }
     }
     
-    
+    /*
     
     func getRandomHand() {
         
@@ -302,6 +280,6 @@ class GameController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+*/
 }
 
